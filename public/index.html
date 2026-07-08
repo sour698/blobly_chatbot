@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blobly Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Ambient background blobs -->
+  <div class="bg-blob bg-blob--one" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand__mark" viewBox="0 0 60 60" aria-hidden="true">
+        <path id="blob-shape" fill="url(#blobGradient)">
+          <animate attributeName="d" dur="7s" repeatCount="indefinite"
+            values="
+              M30,3 C43,2 57,15 57,30 C57,45 44,57 29,57 C15,58 3,45 3,30 C3,16 17,4 30,3 Z;
+              M32,4 C46,6 56,18 55,31 C54,45 42,58 28,56 C15,55 4,42 4,29 C4,15 18,2 32,4 Z;
+              M30,3 C43,2 57,15 57,30 C57,45 44,57 29,57 C15,58 3,45 3,30 C3,16 17,4 30,3 Z" />
+        </path>
+        <defs>
+          <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF6B9D" />
+            <stop offset="100%" stop-color="#7C6CFF" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="brand__text">
+        <span class="brand__name">Blobly</span>
+        <span class="brand__tag">Ask me anything about Blobly</span>
+      </div>
+    </div>
+    <button id="reset-btn" class="reset-btn" type="button" title="Start a new conversation">
+      New chat
+    </button>
+  </header>
+
+  <main class="chat" id="chat" aria-live="polite">
+    <div class="welcome" id="welcome">
+      <svg class="welcome__blob" viewBox="0 0 200 200" aria-hidden="true">
+        <path fill="url(#welcomeGradient)">
+          <animate attributeName="d" dur="9s" repeatCount="indefinite"
+            values="
+              M100,20 C135,18 182,55 180,100 C178,145 138,182 98,180 C55,178 20,142 20,100 C20,56 60,22 100,20 Z;
+              M104,26 C140,30 176,64 174,102 C172,142 132,176 96,172 C58,168 24,136 26,98 C28,58 64,20 104,26 Z;
+              M100,20 C135,18 182,55 180,100 C178,145 138,182 98,180 C55,178 20,142 20,100 C20,56 60,22 100,20 Z" />
+        </path>
+        <defs>
+          <linearGradient id="welcomeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF6B9D" />
+            <stop offset="100%" stop-color="#7C6CFF" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <h1>Hey, I'm the Blobly Assistant.</h1>
+      <p>I can tell you about our mission, Nova, WASP, Forge, internships, and how to reach us.</p>
+
+      <div class="suggestions" id="suggestions">
+        <button class="chip" type="button">What is Blobly?</button>
+        <button class="chip" type="button">What is Blobly's mission?</button>
+        <button class="chip" type="button">What products does Blobly build?</button>
+        <button class="chip" type="button">What is Nova?</button>
+        <button class="chip" type="button">What is WASP?</button>
+        <button class="chip" type="button">What is Forge?</button>
+        <button class="chip" type="button">How can I apply for a Blobly internship?</button>
+        <button class="chip" type="button">How can I verify my Offer Letter?</button>
+        <button class="chip" type="button">How can I contact Blobly?</button>
+      </div>
+    </div>
+
+    <div class="messages" id="messages"></div>
+  </main>
+
+  <form class="composer" id="composer">
+    <input
+      id="input"
+      class="composer__input"
+      type="text"
+      placeholder="Ask about Blobly, Nova, WASP, Forge, internships…"
+      autocomplete="off"
+      maxlength="600"
+    />
+    <button class="composer__send" id="send-btn" type="submit" title="Send">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+        <path d="M4 12L20 4L13 20L11 13L4 12Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </form>
+
+  <footer class="foot-note">Blobly Assistant can make mistakes. Verify important details on our website.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
